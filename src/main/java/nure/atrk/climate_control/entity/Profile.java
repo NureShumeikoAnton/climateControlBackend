@@ -35,9 +35,8 @@ public class Profile {
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "system_id", insertable = false, updatable = false)
-    private ClimateSystem system;
+    @OneToMany(mappedBy = "profile")
+    private Set<ClimateSystem> systems;
 
     @OneToMany(mappedBy = "profile")
     private Set<Shedule> shedules;

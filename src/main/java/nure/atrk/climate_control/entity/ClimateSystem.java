@@ -35,8 +35,10 @@ public class ClimateSystem {
     @OneToMany(mappedBy = "system")
     private Set<Sensor> sensors;
 
-    @OneToMany(mappedBy = "system")
-    private Set<Profile> profiles;
+    @ManyToOne
+    @JoinColumn(name = "profile_id")
+    @JsonIgnore
+    private Profile profile;
 
     @OneToMany(mappedBy = "system")
     private Set<Timer> timers;
